@@ -16,33 +16,33 @@ public sealed class UIRebuildCheckerBehaviour : MonoBehaviour
 
         if ( list.Count <= 0 ) return;
 
-        var stringBuilder = new StringBuilder();
+        var sb = new StringBuilder();
 
-        stringBuilder.Append( "[最適化]リビルドされた UI の合計数：" );
-        stringBuilder.Append( list.GroupBy( x => x.Canvas ).Sum( x => x.First().RebuildTargets.Count ).ToString() );
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine();
-        stringBuilder.AppendLine( "■ 詳細" );
-        stringBuilder.AppendLine();
+        sb.Append( "[最適化]リビルドされた UI の合計数：" );
+        sb.Append( list.GroupBy( x => x.Canvas ).Sum( x => x.First().RebuildTargets.Count ).ToString() );
+        sb.AppendLine();
+        sb.AppendLine();
+        sb.AppendLine( "■ 詳細" );
+        sb.AppendLine();
 
         foreach ( var rebuildData in list )
         {
-            stringBuilder.Append( "UI オブジェクト：" );
-            stringBuilder.Append( rebuildData.Graphic.name );
-            stringBuilder.AppendLine();
+            sb.Append( "UI オブジェクト：" );
+            sb.Append( rebuildData.Graphic.name );
+            sb.AppendLine();
 
-            stringBuilder.Append( "所属するキャンバス：" );
-            stringBuilder.Append( rebuildData.Canvas.name );
-            stringBuilder.AppendLine();
+            sb.Append( "所属するキャンバス：" );
+            sb.Append( rebuildData.Canvas.name );
+            sb.AppendLine();
 
-            stringBuilder.Append( "キャンバスに所属しているオブジェクトの数：" );
-            stringBuilder.Append( rebuildData.RebuildTargets.Count.ToString() );
-            stringBuilder.AppendLine();
+            sb.Append( "キャンバスに所属しているオブジェクトの数：" );
+            sb.Append( rebuildData.RebuildTargets.Count.ToString() );
+            sb.AppendLine();
 
-            stringBuilder.AppendLine();
+            sb.AppendLine();
         }
 
-        var text = stringBuilder.ToString();
+        var text = sb.ToString();
 
         Debug.Log( text );
     }
