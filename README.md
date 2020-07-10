@@ -1,5 +1,7 @@
 # UniUIRebuildChecker
 
+リビルドされた UI オブジェクトの情報を取得できる機能  
+
 ## 使用例
 
 ```cs
@@ -48,3 +50,7 @@ public sealed class UIRebuildCheckerBehaviour : MonoBehaviour
     }
 }
 ```
+
+## 補足
+
+* Position、Rotation、Scale が変更された場合に情報が取得できないことがある  
